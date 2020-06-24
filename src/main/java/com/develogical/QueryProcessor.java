@@ -14,9 +14,22 @@ public class QueryProcessor {
             return "Unsafe";
         } else if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String[] queryParts = query.split(":");
+            if (queryParts.length == 1) {
+                return "";
+            }
             String[] numbers = queryParts[1].split(",");
             int[] array = Arrays.asList(numbers).stream().mapToInt(Integer::parseInt).toArray();
             return Integer.toString(maxValue(array));
+        } else if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("plus") ) {
+
+            String transformedStr = query.replaceAll("[^-?0-9]+", " ");
+            String[] numbers = transformedStr.trim().split(" ");
+            int total = 0;
+            for (int i = 0; i<numbers.length; i++) {
+                int  current = Integer.valueOf(numbers[i]);
+                total =+ current;
+            }
+            return "" + total;
         } else if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("plus") ) {
 
             String transformedStr = query.replaceAll("[^-?0-9]+", " ");

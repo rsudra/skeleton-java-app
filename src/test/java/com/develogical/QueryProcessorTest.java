@@ -30,5 +30,15 @@ public class QueryProcessorTest {
     assertThat(queryProcessor.process("test"), is(""));
   }
 
+  @Test
+  public void returns() throws Exception {
+    assertThat(queryProcessor.process("which of the following numbers is the largest"), is(""));
+  }
+
+
+  //@Test
+  public void returnsPlusQuery() throws Exception {
+    assertThat(queryProcessor.process("what colour is a banana"), is(""));
+  }
 
 }
