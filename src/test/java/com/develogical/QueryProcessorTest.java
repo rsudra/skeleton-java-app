@@ -31,14 +31,26 @@ public class QueryProcessorTest {
   }
 
   @Test
-  public void returns() throws Exception {
+  public void returnsLargest1() throws Exception {
     assertThat(queryProcessor.process("which of the following numbers is the largest"), is(""));
+  }
+
+  @Test
+  public void returnsLargest2() throws Exception {
+    assertThat(queryProcessor.process(" which of the following numbers is the largest"), is(""));
   }
 
 
   @Test
-  public void returnsPlusQuery() throws Exception {
+  public void returnsBananaColour() throws Exception {
     assertThat(queryProcessor.process("what colour is a banana"), is("yellow"));
   }
+
+  @Test
+  public void minus() throws Exception {
+    assertThat(queryProcessor.process("what is 5 minus 16"), is("-11"));
+  }
+
+
 
 }

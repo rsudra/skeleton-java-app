@@ -18,8 +18,20 @@ public class QueryProcessor {
                 return "";
             }
             String[] numbers = queryParts[1].split(",");
+            if (numbers.length == 1) {
+                return "";
+            }
             int[] array = Arrays.asList(numbers).stream().mapToInt(Integer::parseInt).toArray();
             return Integer.toString(maxValue(array));
+        } else if (query.toLowerCase().contains("minus")) {
+            String transformedStr = query.replaceAll("[^-?0-9]+", " ");
+            String[] numbers = transformedStr.trim().split(" ");
+            int total = Integer.valueOf(numbers[0]);
+            for (int i = 1; i<numbers.length; i++) {
+                int  current = Integer.valueOf(numbers[i]);
+                total = total - current;
+            }
+            return "" + total;
         } else if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("plus") ) {
 
             String transformedStr = query.replaceAll("[^-?0-9]+", " ");
