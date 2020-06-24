@@ -36,9 +36,9 @@ public class QueryProcessorTest {
   }
 
 
-  //@Test
+  @Test
   public void returnsPlusQuery() throws Exception {
-    assertThat(queryProcessor.process("what colour is a banana"), is(""));
+    assertThat(queryProcessor.process("what colour is a banana"), is("yellow"));
   }
 
 }

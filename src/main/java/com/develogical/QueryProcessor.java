@@ -40,8 +40,9 @@ public class QueryProcessor {
                 total =+ current;
             }
             return "" + total;
+        } else if (query.toLowerCase().contains("banana")) {
+            return "yellow";
         }
-        // what is 11 plus 19
 
         return "";
     }
